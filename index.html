@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: black;
-            color: lime;
+            color: white;
             font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 0;
@@ -17,7 +17,7 @@
         }
         .container {
             width: 90%;
-            max-width: 600px; /* Smaller max width for better fit on phones */
+            max-width: 600px;
             text-align: center;
             margin-top: 20px;
         }
@@ -26,22 +26,48 @@
             height: auto;
             border: 2px solid lime;
             margin-bottom: 15px;
+            filter: none; /* Keep the image colored */
         }
         .ca-text {
-            font-size: 1.2rem; /* Adjusted for smaller screens */
+            font-size: 1.2rem;
             margin: 15px 0;
+            color: white;
         }
         .gif-container img {
-            width: 100%; /* Responsive width for the GIF */
-            max-width: 600px; /* Limit maximum width for smaller screens */
-            border: 2px solid lime;
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid white;
+            filter: grayscale(100%);
+        }
+        .button-container {
+            margin: 20px 0;
+        }
+        .add-children-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: "Courier New", Courier, monospace;
+            transition: background-color 0.3s ease;
+        }
+        .add-children-btn:hover {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+        .children-count {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: white;
         }
         @media (max-width: 768px) {
             .ca-text {
-                font-size: 1rem; /* Further reduced font size for smaller devices */
+                font-size: 1rem;
             }
             .container {
-                width: 95%; /* Slightly wider for mobile view */
+                width: 95%;
             }
         }
     </style>
@@ -52,12 +78,28 @@
         <img src="Untitled-7.png" alt="MoMCoin">
 
         <!-- CA Placeholder Text -->
-        <div class="ca-text">CA:loading...</div>
+        <div class="ca-text">CA: loading...</div>
 
         <!-- Scrolling Text GIF -->
         <div class="gif-container">
             <img src="vertical_typing_effect_banner_slow_crop.gif" alt="Scrolling Text">
         </div>
+
+        <!-- Add Children Button and Counter -->
+        <div class="button-container">
+            <button class="add-children-btn" onclick="addChild()">Add Children</button>
+            <div class="children-count" id="childrenCount">Children Count: 157</div>
+        </div>
     </div>
+
+    <script>
+        // JavaScript to handle button click and update children count
+        let childrenCount = 157;
+
+        function addChild() {
+            childrenCount++;
+            document.getElementById('childrenCount').innerText = `Children Count: ${childrenCount}`;
+        }
+    </script>
 </body>
 </html>
